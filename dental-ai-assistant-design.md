@@ -9,19 +9,24 @@
 ## Business Scenario
 
 ```
-WHO YOU ARE:    A dental training company/institute
-WHAT YOU DO:    Train junior/trainee dentists
-THE PROBLEM:    You need to evaluate if trainees can handle real patients
-THE SOLUTION:   AI watches their video/audio responses and evaluates them
+WHO YOU ARE:      A dental training company/institute
+WHAT YOU DO:      Train junior/trainee dentists
+THE PROBLEM:      You need to evaluate if trainees can handle real patients
+THE SOLUTION:     AI watches/listens to their responses and evaluates them
+HOW IT WORKS:     You send clinical scenarios (text + images)
+                  Trainees respond via video or audio
+                  AI evaluates on 8 dimensions
 ```
+
+---
 
 ## How It Works (Simple Version)
 
 ```
-STEP 1: Admin creates clinical scenario questions + uploads correct answers
-STEP 2: Trainee receives questions on their app
-STEP 3: Trainee records a VIDEO or AUDIO answer (like a viva/interview)
-STEP 4: AI watches/listens and evaluates on multiple dimensions
+STEP 1: Admin creates clinical scenario (text + clinical images + correct approach)
+STEP 2: Trainee receives scenario on their app
+STEP 3: Trainee records a VIDEO or AUDIO response (like a viva/interview)
+STEP 4: AI watches/listens and evaluates on 8 dimensions
 STEP 5: Trainee and Admin both see detailed results + feedback
 ```
 
@@ -29,55 +34,82 @@ STEP 5: Trainee and Admin both see detailed results + feedback
 
 ## Real Example — One Complete Cycle
 
-### Question (created by senior dentist):
+### Clinical Scenario (created by senior dentist):
 
-> "A 35-year-old patient comes to you with severe throbbing pain in the lower
-> right molar, facial swelling, and mild fever. What is your diagnosis and
-> treatment plan? Explain as if you are speaking to the patient."
+> **Case:** A 45 year old patient Mrs Mariya has come back 2 days after a silver
+> filling with a complaint of pain. The pain is present in her lower left second
+> molar. The pain is mainly on biting and started soon after the silver filling.
+> The cavity was shallow. The patient is worried and annoyed at the earlier dentist
+> and wants an explanation. She has tried painkillers but nothing helps.
+>
+> **Clinical Image:** [Photo of molar with silver amalgam filling]
+>
+> **Task:** You being her doctor for today, need to take a history from the patient,
+> help her with a diagnosis and management. Answer patient questions.
 
-### Correct Answer (uploaded to Knowledge Base by admin):
+### Correct Approach (uploaded to Knowledge Base by admin):
 
-> Diagnosis: Periapical abscess.
-> Treatment: Prescribe antibiotics (Amoxicillin 500mg), pain relief (Ibuprofen).
-> If swelling is fluctuant, perform incision and drainage.
-> Long-term: Root canal therapy or extraction.
-> Explain to patient in simple empathetic terms.
-> Follow-up in 48-72 hours.
+> - Take history: pain on biting (occlusal), timing (started after filling),
+>   type (sharp), hot/cold sensitivity, any clenching habits
+> - Likely diagnosis: Occlusal high point on restoration (most common cause of
+>   post-filling pain on biting), or galvanic reaction, or reversible pulpitis
+> - Management: Check occlusion with articulating paper, adjust filling height,
+>   smooth contacts, review in 1 week
+> - If persists: consider reversible pulpitis, sedative dressing, or replacement
+> - Patient communication: Explain simply that the filling might be slightly too
+>   high, reassure it's a quick fix, acknowledge frustration with empathy
 
-### Trainee Records a 2-Minute Video Answer
+### Trainee Records a 3-Minute Video Response
 
 ### AI Evaluation Result:
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                                                                      │
-│  ✅ CORRECTNESS: 8/10                                                │
-│     "Correctly identified abscess, mentioned antibiotics and         │
-│      root canal. Missed: didn't mention drainage option."            │
-│                                                                      │
-│  ⚡ CONFIDENCE: 5/10                                                 │
-│     "Said 'um' 12 times, long pauses before key answers,            │
-│      voice pitch went up when uncertain"                             │
-│                                                                      │
-│  🗣️ COMMUNICATION: 6/10                                              │
-│     "Answer is correct but explanation was jumbled.                  │
-│      Started with treatment before giving diagnosis.                 │
-│      A real patient would be confused."                              │
-│                                                                      │
-│  👁️ BODY LANGUAGE: 5/10 (only if video submitted)                   │
-│     "Limited eye contact, looking down frequently,                   │
-│      fidgeting with pen, slouched posture"                           │
-│                                                                      │
-│  🎯 COMPLETENESS: 7/10                                              │
-│     "Covered diagnosis and treatment. Missed aftercare              │
-│      instructions and patient reassurance."                          │
-│                                                                      │
-│  📊 OVERALL: 62/100                                                  │
-│     "Good clinical knowledge! Work on: eye contact,                  │
-│      structuring answers (diagnosis → reasoning → plan),             │
-│      and reducing filler words."                                     │
-│                                                                      │
-└─────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────┐
+│                                                                          │
+│  📋 HISTORY TAKING: 7/10                                                 │
+│     "Asked about pain type and timing. Missed: asking about hot/cold     │
+│      sensitivity, previous dental history, clenching/grinding habits."   │
+│                                                                          │
+│  🧠 CLINICAL REASONING: 8/10                                             │
+│     "Correctly linked post-filling pain on biting to occlusal high       │
+│      point. Good logical flow from symptoms to diagnosis."               │
+│                                                                          │
+│  🎯 DIAGNOSIS: 9/10                                                      │
+│     "Correctly identified high restoration as primary cause.             │
+│      Mentioned possibility of reversible pulpitis."                      │
+│                                                                          │
+│  💊 MANAGEMENT PLAN: 7/10                                                │
+│     "Mentioned occlusal adjustment and review. Missed: checking for      │
+│      galvanic reaction, considering temporary sedative dressing."         │
+│                                                                          │
+│  🗣️ PATIENT COMMUNICATION: 6/10                                          │
+│     "Used some technical jargon patient might not understand.            │
+│      Could simplify the explanation of 'occlusal high point'."           │
+│                                                                          │
+│  ❤️ EMPATHY: 8/10                                                        │
+│     "Acknowledged patient's frustration. Reassured that the issue        │
+│      is fixable. Good rapport building."                                 │
+│                                                                          │
+│  ⚡ CONFIDENCE: 5/10                                                      │
+│     "Hesitated before giving diagnosis. Said 'I think maybe' instead     │
+│      of being definitive. Long pause before management plan."            │
+│                                                                          │
+│  👁️ BODY LANGUAGE: 6/10 (only if video submitted)                        │
+│     "Maintained some eye contact but looked away during key              │
+│      explanations. Slight fidgeting."                                    │
+│                                                                          │
+│  📊 OVERALL: 70/100                                                      │
+│                                                                          │
+│  💬 FEEDBACK:                                                             │
+│     "Strong diagnostic skills! Your clinical reasoning is solid.         │
+│      Focus on: (1) asking more history questions before jumping to       │
+│      diagnosis, (2) being more definitive when explaining — patients     │
+│      need to feel you're confident, (3) simplify technical terms         │
+│      when speaking to patients. Try: 'Your filling is sitting a bit      │
+│      too high, which is why it hurts when you bite. I can fix that       │
+│      right now in a few minutes.'"                                       │
+│                                                                          │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -86,22 +118,35 @@ STEP 5: Trainee and Admin both see detailed results + feedback
 
 ```
 IF trainee uploads VIDEO (.mp4, .webm, .mov):
-  → AI evaluates ALL 5 dimensions (correctness + confidence +
-    communication + body language + completeness)
+  → AI evaluates ALL 8 dimensions
 
 IF trainee uploads AUDIO ONLY (.mp3, .wav, .m4a):
-  → AI evaluates 4 dimensions (correctness + confidence +
-    communication + completeness)
-  → Body language is skipped (nothing to see)
+  → AI evaluates 7 dimensions (skips body language)
 ```
 
-| Dimension | Video Upload | Audio-Only Upload |
-|-----------|-------------|-------------------|
-| Correctness | ✅ Scored | ✅ Scored |
-| Confidence (voice tone, hesitation) | ✅ Scored | ✅ Scored |
-| Communication (clarity, structure) | ✅ Scored | ✅ Scored |
-| Completeness (all points covered?) | ✅ Scored | ✅ Scored |
-| Body Language (eye contact, posture) | ✅ Scored | ⏭️ Skipped |
+| Dimension | Video | Audio-Only |
+|-----------|-------|------------|
+| History Taking | ✅ | ✅ |
+| Clinical Reasoning | ✅ | ✅ |
+| Diagnosis | ✅ | ✅ |
+| Management Plan | ✅ | ✅ |
+| Patient Communication | ✅ | ✅ |
+| Empathy | ✅ | ✅ |
+| Confidence | ✅ | ✅ |
+| Body Language | ✅ | ⏭️ Skipped |
+
+---
+
+## Scenarios Can Include
+
+| Component | Required? | Examples |
+|-----------|-----------|---------|
+| Case description (text) | Yes | Patient history, symptoms, context |
+| Clinical images | Optional | X-rays, intraoral photos, models |
+| Task instructions | Yes | "Diagnose and create management plan" |
+| Multiple images | Optional | Before/after, multiple views |
+
+The system supports any number of scenarios with any combination of text + images.
 
 ---
 
@@ -109,257 +154,260 @@ IF trainee uploads AUDIO ONLY (.mp3, .wav, .m4a):
 
 ---
 
-## The Core Question: How Does AI "Watch" a Video and Evaluate?
+## The Core: What Does AI Receive and How Does It Evaluate?
 
-Amazon Bedrock with Claude AI is a **multimodal model** — meaning it can understand:
-- **Text** (the question + correct answer)
-- **Audio** (trainee's voice — words, tone, hesitations, pauses)
-- **Images** (video frames — body language, eye contact, posture)
+Claude AI on Amazon Bedrock is **multimodal** — it can understand text, audio, and images all at once.
 
-You send all of these to Claude in ONE API call, and it returns a structured evaluation.
+For each trainee submission, AI receives everything in ONE call:
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                                                                          │
+│  WHAT AI RECEIVES (in one single API call):                              │
+│                                                                          │
+│  ┌───────────────────────────────────────────────────────────────────┐  │
+│  │  1. SCENARIO TEXT                                                  │  │
+│  │     "A 45 year old patient Mrs Mariya..."                         │  │
+│  │                                                                    │  │
+│  │  2. SCENARIO IMAGES (clinical photos, X-rays)                     │  │
+│  │     [photo of molar with silver filling]                          │  │
+│  │     So AI knows exactly what the trainee is looking at            │  │
+│  │                                                                    │  │
+│  │  3. CORRECT APPROACH (from Knowledge Base)                        │  │
+│  │     "Expected: take history, diagnose high filling, adjust..."    │  │
+│  │     This is what AI compares the trainee's answer AGAINST         │  │
+│  │                                                                    │  │
+│  │  4. TRAINEE'S AUDIO (their spoken response)                       │  │
+│  │     AI can hear: words + tone + hesitations + pauses + filler     │  │
+│  │                                                                    │  │
+│  │  5. TRAINEE'S VIDEO FRAMES (if video submitted)                   │  │
+│  │     AI can see: body language + eye contact + posture             │  │
+│  │     Skipped if audio-only submission                              │  │
+│  │                                                                    │  │
+│  │  6. EVALUATION INSTRUCTIONS (our scoring prompt)                  │  │
+│  │     "Score on 8 dimensions: history taking, reasoning..."         │  │
+│  └───────────────────────────────────────────────────────────────────┘  │
+│                                                                          │
+│  WHAT AI DOES:                                                           │
+│                                                                          │
+│  • Listens to audio → understands what trainee said + how they said it  │
+│  • Looks at scenario image → understands the clinical context           │
+│  • Compares trainee's response against correct approach                 │
+│  • Scores each dimension separately                                      │
+│  • Generates personalized feedback with improvement tips                 │
+│                                                                          │
+│  WHAT AI RETURNS:                                                        │
+│                                                                          │
+│  Structured JSON with 8 scores + overall percentage + feedback           │
+│                                                                          │
+└─────────────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
-## Step-by-Step Processing Flow
+## Step-by-Step Processing Pipeline
 
 ```
-TRAINEE UPLOADS VIDEO/AUDIO
+TRAINEE UPLOADS VIDEO OR AUDIO
         │
         ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  STEP A: DETECT FILE TYPE                                        │
-│                                                                   │
-│  Lambda checks: Is it video or audio-only?                        │
-│                                                                   │
-│  Video (.mp4, .webm, .mov) → go to Step B + Step C              │
-│  Audio (.mp3, .wav, .m4a)  → go to Step B only (skip Step C)    │
-└───────────────────────────────┬─────────────────────────────────┘
-                                │
-                                ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  STEP B: EXTRACT AUDIO                                           │
-│                                                                   │
-│  If video: extract audio track from video file using FFmpeg       │
-│  If audio: use file directly (nothing to extract)                │
-│                                                                   │
-│  Tool: AWS Lambda running FFmpeg                                  │
-│  Output: Audio file (.mp3 or .wav)                               │
-│                                                                   │
-│  WHY: So AI can hear what trainee SAID + HOW they said it        │
-└───────────────────────────────┬─────────────────────────────────┘
-                                │
-                                ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  STEP C: EXTRACT VIDEO FRAMES (Only if video uploaded)           │
-│                                                                   │
-│  Take a screenshot every 10-15 seconds from the video            │
-│  Example: 2-minute video → ~8-12 frames                          │
-│                                                                   │
-│  Tool: AWS Lambda running FFmpeg                                  │
-│  Output: 8-12 JPEG images                                        │
-│                                                                   │
-│  WHY: So AI can see body language, eye contact, posture          │
-│  NOTE: Skipped entirely if trainee uploaded audio-only           │
-└───────────────────────────────┬─────────────────────────────────┘
-                                │
-                                ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  STEP D: FETCH CORRECT ANSWER FROM KNOWLEDGE BASE                │
-│                                                                   │
-│  System asks Bedrock Knowledge Base:                              │
-│  "For this question, what is the expected correct answer?"        │
-│                                                                   │
-│  Knowledge Base searches through all uploaded dental documents    │
-│  and returns the matching reference answer.                       │
-│                                                                   │
-│  Tool: Amazon Bedrock Knowledge Bases                             │
-│  Output: Text of correct answer + key points + scoring criteria  │
-│                                                                   │
-│  WHY: AI needs something to COMPARE the trainee's answer against │
-└───────────────────────────────┬─────────────────────────────────┘
-                                │
-                                ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  STEP E: SEND EVERYTHING TO CLAUDE AI FOR EVALUATION             │
-│                                                                   │
-│  One single API call to Amazon Bedrock (Claude model) with:      │
-│                                                                   │
-│  ┌───────────────────────────────────────────────────────────┐  │
-│  │  INPUT TO AI:                                              │  │
-│  │                                                            │  │
-│  │  1. Question text                                          │  │
-│  │  2. Correct answer (from Knowledge Base)                   │  │
-│  │  3. Audio file (trainee's voice)                           │  │
-│  │  4. Video frames (if video was uploaded)                   │  │
-│  │  5. Evaluation instructions (our scoring prompt)           │  │
-│  └───────────────────────────────────────────────────────────┘  │
-│                                                                   │
-│  What Claude AI does internally:                                  │
-│                                                                   │
-│  • LISTENS to audio → understands what trainee said              │
-│  • COMPARES content vs correct answer → scores CORRECTNESS       │
-│  • DETECTS "um", "uh", pauses, shaky voice → scores CONFIDENCE  │
-│  • CHECKS if explanation is organized → scores COMMUNICATION     │
-│  • LOOKS at video frames → scores BODY LANGUAGE (if available)   │
-│  • CHECKS if all key points covered → scores COMPLETENESS       │
-│                                                                   │
-│  ┌───────────────────────────────────────────────────────────┐  │
-│  │  OUTPUT FROM AI:                                           │  │
-│  │                                                            │  │
-│  │  {                                                         │  │
-│  │    "correctness": { "score": 8, "total": 10, "details"..} │  │
-│  │    "confidence": { "score": 5, "total": 10, "details".. } │  │
-│  │    "communication": { "score": 6, "total": 10, "details"} │  │
-│  │    "body_language": { "score": 5, "total": 10, "details"} │  │
-│  │    "completeness": { "score": 7, "total": 10, "details" } │  │
-│  │    "overall_percentage": 62,                               │  │
-│  │    "feedback": "Good knowledge! Work on confidence..."     │  │
-│  │  }                                                         │  │
-│  └───────────────────────────────────────────────────────────┘  │
-│                                                                   │
-│  Tool: Amazon Bedrock (Claude 3.5 Sonnet or Claude 4 Sonnet)    │
-└───────────────────────────────┬─────────────────────────────────┘
-                                │
-                                ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  STEP F: STORE RESULTS + NOTIFY                                  │
-│                                                                   │
-│  • Save evaluation results to DynamoDB (database)                │
-│  • Send push notification to trainee: "Results ready"            │
-│  • Send email summary to admin/senior dentist                    │
-│                                                                   │
-│  Tools: DynamoDB + SNS + SES                                     │
-└─────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────┐
+│  STEP 1: DETECT FILE TYPE                                                │
+│                                                                          │
+│  Lambda checks the uploaded file:                                        │
+│  • Video (.mp4, .webm, .mov) → process as video (extract audio+frames) │
+│  • Audio (.mp3, .wav, .m4a) → process as audio (use directly)          │
+└───────────────────────────────────┬─────────────────────────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│  STEP 2: PROCESS MEDIA                                                   │
+│                                                                          │
+│  IF VIDEO:                                                               │
+│    • Extract audio track (using FFmpeg)                                  │
+│    • Extract key frames every 10-15 seconds (using FFmpeg)              │
+│    • Example: 3-min video → audio.mp3 + ~12 JPEG frames                │
+│                                                                          │
+│  IF AUDIO:                                                               │
+│    • Use audio file directly                                            │
+│    • No frames to extract                                               │
+│                                                                          │
+│  Tool: AWS Lambda with FFmpeg layer                                      │
+└───────────────────────────────────┬─────────────────────────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│  STEP 3: FETCH SCENARIO DATA                                             │
+│                                                                          │
+│  From DynamoDB + S3:                                                     │
+│    • Scenario text (the clinical case description)                       │
+│    • Scenario images (clinical photos, X-rays)                          │
+│                                                                          │
+│  From Bedrock Knowledge Base:                                            │
+│    • Correct approach / expected answer for this scenario               │
+│    • Key points that should be covered                                   │
+│    • Scoring criteria                                                    │
+│                                                                          │
+│  WHY: AI needs the full context to evaluate properly                     │
+└───────────────────────────────────┬─────────────────────────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│  STEP 4: AI EVALUATION (ONE API CALL TO CLAUDE)                          │
+│                                                                          │
+│  Send to Amazon Bedrock (Claude model):                                  │
+│    • Scenario text + images                                             │
+│    • Correct approach from KB                                           │
+│    • Trainee's audio                                                    │
+│    • Trainee's video frames (if video)                                  │
+│    • Scoring prompt with 8 dimensions                                   │
+│                                                                          │
+│  Claude processes everything and returns:                                │
+│    • 8 individual scores with explanations                              │
+│    • Overall percentage                                                  │
+│    • Personalized feedback with specific tips                           │
+└───────────────────────────────────┬─────────────────────────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│  STEP 5: STORE RESULTS + NOTIFY                                          │
+│                                                                          │
+│  • Save full evaluation to DynamoDB                                      │
+│  • Send push notification to trainee: "Results ready"                    │
+│  • Send email summary to admin                                           │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## What is the Knowledge Base? (Explained Simply)
+## The 8 Evaluation Dimensions Explained
+
+| # | Dimension | What AI Checks | How AI Detects It |
+|---|-----------|---------------|-------------------|
+| 1 | **History Taking** | Did trainee ask the right questions before diagnosing? | Listens for: questions about pain type, duration, triggers, medical history |
+| 2 | **Clinical Reasoning** | Did they logically connect symptoms to diagnosis? | Listens for: "because X, therefore Y" type reasoning |
+| 3 | **Diagnosis** | Is the final diagnosis correct? | Compares stated diagnosis against correct answer from KB |
+| 4 | **Management Plan** | Are the treatment steps correct and complete? | Compares proposed treatment against expected approach |
+| 5 | **Patient Communication** | Is the explanation clear for a non-medical person? | Checks for jargon vs simple language |
+| 6 | **Empathy** | Did they acknowledge the patient's feelings/concerns? | Listens for: acknowledgment, reassurance, caring tone |
+| 7 | **Confidence** | How confidently did they deliver the answer? | Detects: filler words (um, uh), hesitation, pauses, questioning tone |
+| 8 | **Body Language** | Professional visual presence? (video only) | Looks at frames: eye contact, posture, gestures, composure |
+
+---
+
+## What is the Knowledge Base? (RAG)
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                                                                      │
-│  PROBLEM: If you just ask AI "is this answer correct?" — AI will    │
-│  use its general knowledge. But you want it to use YOUR specific    │
-│  correct answers and scoring criteria.                               │
-│                                                                      │
-│  SOLUTION: Upload your correct answers to a "Knowledge Base"         │
-│  AI will search YOUR data first, not guess.                          │
-│                                                                      │
-│  ┌───────────────────────────────────────────────────────────┐      │
-│  │                                                            │      │
-│  │  WHAT YOU UPLOAD:                                          │      │
-│  │                                                            │      │
-│  │  • Correct answers for each question                       │      │
-│  │  • Key points that must be mentioned                       │      │
-│  │  • Scoring criteria (what gets full marks?)                │      │
-│  │  • Dental guidelines and protocols                         │      │
-│  │  • Any reference material                                  │      │
-│  │                                                            │      │
-│  └───────────────────────────────────────────────────────────┘      │
-│                                                                      │
-│  HOW IT WORKS:                                                       │
-│                                                                      │
-│  1. You upload documents to S3 bucket                                │
-│  2. Bedrock Knowledge Base reads them and creates an index           │
-│  3. When a trainee submits an answer, system asks KB:                │
-│     "What is the correct answer for question X?"                     │
-│  4. KB returns the matching reference answer                         │
-│  5. AI uses this reference to compare against trainee's response    │
-│                                                                      │
-│  ANALOGY: Like giving an answer sheet to the AI examiner             │
-│                                                                      │
-└─────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────┐
+│                                                                          │
+│  PROBLEM:                                                                │
+│  You don't want AI to use its general knowledge to evaluate.             │
+│  You want AI to use YOUR specific correct approaches and criteria.       │
+│                                                                          │
+│  SOLUTION: Knowledge Base                                                │
+│  Upload your correct approaches for each scenario.                       │
+│  AI searches HERE first to find what the correct answer should be.       │
+│                                                                          │
+│  WHAT YOU UPLOAD:                                                        │
+│  • Correct approach for each clinical scenario                           │
+│  • Key points that must be covered                                       │
+│  • Common mistakes to flag                                               │
+│  • Scoring rubrics per category                                          │
+│  • Clinical guidelines and protocols                                     │
+│                                                                          │
+│  ANALOGY: It's like giving an answer sheet to the AI examiner.           │
+│  The examiner (AI) looks at the answer sheet (Knowledge Base)            │
+│  and compares it with what the student (trainee) said.                   │
+│                                                                          │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## What is Amazon Bedrock? (Explained Simply)
+## What is Amazon Bedrock?
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                                                                      │
-│  Amazon Bedrock = AWS service that lets you use AI models            │
-│                                                                      │
-│  Think of it as: AWS gives you access to smart AI brains.            │
-│  You don't build the AI — you just USE it.                           │
-│                                                                      │
-│  BEDROCK has two things you'll use:                                  │
-│                                                                      │
-│  ┌──────────────────────────────────────────────────────────┐       │
-│  │  1. KNOWLEDGE BASE                                        │       │
-│  │     = Storage for your correct answers                    │       │
-│  │     = AI searches here to find the right reference        │       │
-│  │     = You upload docs, it indexes them automatically      │       │
-│  └──────────────────────────────────────────────────────────┘       │
-│                                                                      │
-│  ┌──────────────────────────────────────────────────────────┐       │
-│  │  2. CLAUDE MODEL (the AI brain)                           │       │
-│  │     = Made by Anthropic, available through Bedrock        │       │
-│  │     = Can understand text + audio + images                │       │
-│  │     = You send it data → it returns evaluation            │       │
-│  │     = "Multimodal" = understands multiple input types     │       │
-│  └──────────────────────────────────────────────────────────┘       │
-│                                                                      │
-│  You call ONE service (Bedrock) but use TWO capabilities within it  │
-│                                                                      │
-└─────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────┐
+│                                                                          │
+│  Amazon Bedrock = ONE AWS service with TWO capabilities you'll use:      │
+│                                                                          │
+│  ┌────────────────────────────────────────────────────────────────┐     │
+│  │  1. KNOWLEDGE BASE                                              │     │
+│  │     = Stores your correct answers and guidelines                │     │
+│  │     = You upload documents, it indexes them automatically       │     │
+│  │     = When you query it, it finds the best matching answer      │     │
+│  └────────────────────────────────────────────────────────────────┘     │
+│                                                                          │
+│  ┌────────────────────────────────────────────────────────────────┐     │
+│  │  2. CLAUDE MODEL (the AI brain)                                 │     │
+│  │     = Can understand text + audio + images (multimodal)         │     │
+│  │     = You send it the trainee's recording + correct answer      │     │
+│  │     = It evaluates and returns scores + feedback                │     │
+│  └────────────────────────────────────────────────────────────────┘     │
+│                                                                          │
+│  Both are accessed through the SAME service (Bedrock).                  │
+│  No separate services needed.                                            │
+│                                                                          │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-# PART 3: COMPLETE END-TO-END ARCHITECTURE
+# PART 3: COMPLETE TECHNICAL ARCHITECTURE
 
 ---
 
 ## All Users and Their Actions
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│  ADMIN / SENIOR DENTIST                                              │
-│                                                                      │
-│  What they do:                                                       │
-│  • Create clinical scenario questions                                │
-│  • Upload correct answers to Knowledge Base                          │
-│  • Assign questions to trainees                                      │
-│  • View all trainee results on dashboard                             │
-│  • Track progress over time                                          │
-│  • Export reports                                                     │
-└─────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────┐
+│  ADMIN / SENIOR DENTIST                                                  │
+│                                                                          │
+│  • Create clinical scenarios (text + images)                             │
+│  • Upload correct approaches to Knowledge Base                           │
+│  • Assign scenarios to trainees                                          │
+│  • View all trainee results on dashboard                                 │
+│  • Track trainee progress over time                                      │
+│  • Export reports                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
 
-┌─────────────────────────────────────────────────────────────────────┐
-│  TRAINEE DENTIST                                                     │
-│                                                                      │
-│  What they do:                                                       │
-│  • Receive notification: "You have a new assessment"                 │
-│  • Open app → see clinical scenario question                         │
-│  • Record VIDEO or AUDIO answer                                      │
-│  • Submit recording                                                  │
-│  • View results + AI feedback                                        │
-│  • Track own improvement over time                                   │
-└─────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────┐
+│  TRAINEE DENTIST                                                         │
+│                                                                          │
+│  • Receive notification: "You have a new assessment"                     │
+│  • Open app → see clinical scenario (text + images)                      │
+│  • Record VIDEO or AUDIO response                                        │
+│  • Submit recording                                                      │
+│  • View results + AI feedback                                            │
+│  • Track own improvement over time                                       │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Complete Technical Architecture
+## Complete Architecture Diagram
 
 ```
 ┌────────────────────────┐                         ┌────────────────────────┐
 │   ADMIN WEB APP        │                         │   TRAINEE APP          │
 │   (React/Next.js)      │                         │   (React Native/Web)   │
+│                        │                         │                        │
+│  • Create scenarios    │                         │  • View scenarios      │
+│  • Upload images       │                         │  • Record video/audio  │
+│  • Upload KB docs      │                         │  • View results        │
+│  • View dashboard      │                         │                        │
 └───────────┬────────────┘                         └───────────┬────────────┘
             │                                                  │
             ▼                                                  ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                         AWS CloudFront (CDN)                                 │
-│                    Hosts web apps, fast delivery, HTTPS                      │
+│                    Hosts web apps, HTTPS, fast delivery                      │
 └─────────────────────────────────────────────────────────────────────────────┘
                                     │
                                     ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                         Amazon Cognito (Authentication)                      │
-│                    Admin accounts + Trainee accounts + JWT tokens            │
+│                    Admin + Trainee login, JWT tokens                         │
 └─────────────────────────────────────────────────────────────────────────────┘
                                     │
                                     ▼
@@ -367,7 +415,8 @@ TRAINEE UPLOADS VIDEO/AUDIO
 │                         Amazon API Gateway (REST API)                        │
 │                                                                             │
 │  Admin APIs:                           Trainee APIs:                         │
-│  POST /questions                       GET  /my/assignments                 │
+│  POST /scenarios                       GET  /my/assignments                 │
+│  POST /scenarios/{id}/images           GET  /my/scenarios/{assignmentId}    │
 │  POST /knowledge-base/upload           POST /my/responses/upload-url        │
 │  POST /assignments                     POST /my/responses                   │
 │  GET  /results                         GET  /my/results                     │
@@ -379,14 +428,13 @@ TRAINEE UPLOADS VIDEO/AUDIO
 │                         AWS Lambda (Backend Logic)                           │
 │                                                                             │
 │  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐     │
-│  │  Question    │ │  Assignment  │ │  Upload URL  │ │  Results     │     │
+│  │  Scenario    │ │  Assignment  │ │  Upload URL  │ │  Results     │     │
 │  │  Manager    │ │  Manager     │ │  Generator   │ │  Fetcher     │     │
 │  └──────────────┘ └──────────────┘ └──────────────┘ └──────────────┘     │
 │                                                                             │
 │  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐     │
-│  │  File Type   │ │  Media       │ │  Evaluate    │ │  Store       │     │
-│  │  Detector   │ │  Processor   │ │  Response    │ │  Results     │     │
-│  │  (audio/vid)│ │  (FFmpeg)    │ │  (Bedrock)   │ │  (DynamoDB)  │     │
+│  │  File Type   │ │  Media       │ │  Evaluate    │ │  Store &     │     │
+│  │  Detector   │ │  Processor   │ │  Response    │ │  Notify      │     │
 │  └──────────────┘ └──────────────┘ └──────────────┘ └──────────────┘     │
 └─────────────────────────────────────────────────────────────────────────────┘
                                     │
@@ -395,268 +443,171 @@ TRAINEE UPLOADS VIDEO/AUDIO
 ┌──────────────────┐   ┌──────────────────┐   ┌──────────────────────────┐
 │  Amazon S3       │   │  Amazon DynamoDB │   │  AWS Step Functions      │
 │                  │   │                  │   │  (Processing Pipeline)    │
-│  • Video files   │   │  • Questions     │   │                          │
-│  • Audio files   │   │  • Assignments   │   │  Detect → Process →      │
-│  • KB documents  │   │  • Results       │   │  Evaluate → Store →      │
-│  • Video frames  │   │  • Users         │   │  Notify                  │
+│  • Videos/audio  │   │  • Scenarios     │   │                          │
+│  • Scenario imgs │   │  • Assignments   │   │  Detect → Process →      │
+│  • KB documents  │   │  • Results       │   │  Fetch → Evaluate →      │
+│  • Extracted     │   │  • Users         │   │  Store → Notify          │
+│    frames        │   │                  │   │                          │
 └──────────────────┘   └──────────────────┘   └────────────┬─────────────┘
                                                            │
-                                          ┌────────────────┼────────────────┐
-                                          ▼                ▼                ▼
-                                ┌──────────────┐ ┌──────────────┐ ┌──────────────┐
-                                │  Bedrock     │ │  Bedrock     │ │  SNS + SES   │
-                                │  Knowledge   │ │  Claude AI   │ │  (Notify)    │
-                                │  Base        │ │              │ │              │
-                                │  (Your       │ │  Listens to  │ │  Push + Email│
-                                │  correct     │ │  audio, sees │ │  to trainee  │
-                                │  answers)    │ │  video, and  │ │  and admin   │
-                                │              │ │  evaluates   │ │              │
-                                └──────────────┘ └──────────────┘ └──────────────┘
+                                          ┌────────────────┼────────────┐
+                                          ▼                ▼            ▼
+                                ┌──────────────┐ ┌──────────────┐ ┌─────────┐
+                                │  Bedrock     │ │  Bedrock     │ │ SNS+SES │
+                                │  Knowledge   │ │  Claude AI   │ │ Notify  │
+                                │  Base        │ │  (Evaluator) │ │         │
+                                │              │ │              │ │ Push +  │
+                                │  Your correct│ │  Listens,    │ │ Email   │
+                                │  answers     │ │  sees, and   │ │         │
+                                │  stored here │ │  evaluates   │ │         │
+                                └──────────────┘ └──────────────┘ └─────────┘
 ```
 
 ---
 
-## Processing Pipeline (What Happens After Upload)
+## Processing Pipeline Detail
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    AWS STEP FUNCTIONS — Processing Pipeline                   │
+│                AWS STEP FUNCTIONS — Evaluation Pipeline                       │
 │                                                                              │
 │  Triggered automatically when trainee uploads file to S3                     │
 │                                                                              │
-│                                                                              │
-│  ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────┐ │
-│  │  STEP 1  │───▶│  STEP 2  │───▶│  STEP 3  │───▶│  STEP 4  │───▶│STEP 5│ │
-│  │          │    │          │    │          │    │          │    │      │ │
-│  │ Detect & │    │ Process  │    │ Fetch    │    │ AI       │    │Store │ │
-│  │ Validate │    │ Media    │    │ Correct  │    │ Evaluate │    │  +   │ │
-│  │          │    │          │    │ Answer   │    │          │    │Notify│ │
-│  └──────────┘    └──────────┘    └──────────┘    └──────────┘    └──────┘ │
-│       │               │               │               │              │     │
-│       ▼               ▼               ▼               ▼              ▼     │
-│  Check file      If VIDEO:       Query Bedrock    Send to         Save to  │
-│  type + size     • Extract       Knowledge Base   Claude AI:      DynamoDB │
-│  Is it valid?      audio         "What is the     • Audio         Send     │
-│                  • Extract       correct answer    • Frames        push/    │
-│  If AUDIO:         frames        for question X?" • Question      email    │
-│  • Use as-is    (using FFmpeg)                    • Correct ans            │
-│                                  Returns:          • Instructions           │
-│                  If AUDIO:       Reference text                             │
-│                  • Skip frames                    Returns:                  │
-│                  • Audio ready                    Scores +                  │
-│                                                   Feedback                  │
-│                                                                              │
+│  ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐│
+│  │  STEP 1  │──▶│  STEP 2  │──▶│  STEP 3  │──▶│  STEP 4  │──▶│  STEP 5  ││
+│  │          │   │          │   │          │   │          │   │          ││
+│  │ Detect & │   │ Process  │   │  Fetch   │   │    AI    │   │ Store +  ││
+│  │ Validate │   │  Media   │   │ Scenario │   │ Evaluate │   │  Notify  ││
+│  │          │   │          │   │ + Ref Ans│   │          │   │          ││
+│  └──────────┘   └──────────┘   └──────────┘   └──────────┘   └──────────┘│
+│       │              │              │               │              │        │
+│       ▼              ▼              ▼               ▼              ▼        │
+│  • Check file   • If VIDEO:    • Get scenario   • Send ALL to  • Save to  │
+│    type/size      extract        text + images    Claude AI:     DynamoDB  │
+│  • Is valid?      audio +      • Query KB for    - Scenario     • Send     │
+│                   frames         correct          - Images       push to   │
+│               • If AUDIO:        approach         - Audio        trainee   │
+│                 use directly                      - Frames       • Email    │
+│                                                  - Instructions  admin     │
+│                                                                            │
+│                                                  Returns:                   │
+│                                                  8 scores +                 │
+│                                                  feedback                   │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Complete Request Flow — Video Submission
+## Sequence Diagram — Full Flow
 
 ```
-Trainee          App          API Gateway    Lambda         S3          Step Functions    Bedrock KB     Claude AI      DynamoDB     SNS/SES
-  │               │               │            │            │               │               │              │              │            │
-  │──Open app────▶│               │            │            │               │               │              │              │            │
-  │               │──GET questions─▶───────────▶│            │               │               │              │              │            │
-  │               │◀──questions list────────────┤            │               │               │              │              │            │
-  │               │               │            │            │               │               │              │              │            │
-  │──Record video─▶               │            │            │               │               │              │              │            │
-  │               │──GET upload URL▶───────────▶│            │               │               │              │              │            │
-  │               │◀──presigned URL────────────┤            │               │               │              │              │            │
-  │               │──Upload video directly──────────────────▶│               │               │              │              │            │
-  │               │               │            │            │               │               │              │              │            │
-  │               │               │            │            │──Event────────▶│               │              │              │            │
-  │               │               │            │            │               │               │              │              │            │
-  │               │               │            │            │               │──Detect type───▶              │              │            │
-  │               │               │            │            │               │  (it's video)  │              │              │            │
-  │               │               │            │            │               │               │              │              │            │
-  │               │               │            │            │               │──Extract audio + frames──────▶              │            │
-  │               │               │            │            │               │               │              │              │            │
-  │               │               │            │            │               │──Get correct answer──────────▶│              │            │
-  │               │               │            │            │               │◀──Reference answer────────────┤              │            │
-  │               │               │            │            │               │               │              │              │            │
-  │               │               │            │            │               │──Evaluate (audio+frames+ref)────────────────▶│            │
-  │               │               │            │            │               │◀──Scores + Feedback──────────────────────────┤            │
-  │               │               │            │            │               │               │              │              │            │
-  │               │               │            │            │               │──Store results─────────────────────────────────────────▶│
-  │               │               │            │            │               │──Send notification────────────────────────────────────────▶
-  │               │               │            │            │               │               │              │              │            │
-  │◀───────────────Push: "Your results are ready"───────────────────────────────────────────────────────────────────────────────────────┤
-  │               │               │            │            │               │               │              │              │            │
-  │──View results─▶──GET /my/results──────────▶│──Query─────────────────────────────────────────────────────────────────▶│            │
-  │◀──────────────Scores + Feedback────────────┤            │               │               │              │              │            │
+Trainee      App       API GW    Lambda      S3       StepFn     Bedrock KB   Claude AI    DynamoDB   SNS/SES
+  │           │          │         │          │          │            │           │           │          │
+  │─Open app──▶          │         │          │          │            │           │           │          │
+  │           │─GET scenarios──────▶│          │          │            │           │           │          │
+  │           │◀─scenario+images───┤          │          │            │           │           │          │
+  │           │          │         │          │          │            │           │           │          │
+  │─Record────▶          │         │          │          │            │           │           │          │
+  │           │─GET upload URL─────▶│          │          │            │           │           │          │
+  │           │◀─presigned URL─────┤          │          │            │           │           │          │
+  │           │─Upload file directly─────────▶│          │            │           │           │          │
+  │           │─POST /responses────▶│          │          │            │           │           │          │
+  │           │          │         │          │          │            │           │           │          │
+  │           │          │         │          │─Event───▶│            │           │           │          │
+  │           │          │         │          │          │─Detect type│           │           │          │
+  │           │          │         │          │          │─Process media          │           │          │
+  │           │          │         │          │          │─Get ref answer────────▶│           │          │
+  │           │          │         │          │          │◀─Correct approach──────┤           │          │
+  │           │          │         │          │          │─Evaluate (all inputs)──────────────▶          │
+  │           │          │         │          │          │◀─8 scores + feedback───────────────┤          │
+  │           │          │         │          │          │─Store results──────────────────────────────▶│  │
+  │           │          │         │          │          │─Notify─────────────────────────────────────────▶
+  │           │          │         │          │          │            │           │           │          │
+  │◀───────────Push: "Results ready"─────────────────────────────────────────────────────────────────────┤
+  │           │          │         │          │          │            │           │           │          │
+  │─View──────▶─GET results────────▶│─Query──────────────────────────────────────────────────▶│          │
+  │◀──────────Scores + Feedback────┤          │          │            │           │           │          │
 ```
 
 ---
 
-# PART 4: AWS SERVICES EXPLAINED
+## AWS Services — What Each Does
+
+| Service | What It Does | Why You Need It |
+|---------|-------------|-----------------|
+| **CloudFront** | Hosts web apps (admin + trainee) | Fast loading globally |
+| **Cognito** | Login system (signup, login, OTP) | Secure authentication |
+| **API Gateway** | Front door for all API requests | Routes requests to Lambda |
+| **Lambda** | Backend code (runs on demand) | No servers to manage |
+| **S3** | File storage (videos, images, docs) | Cheap, unlimited, secure |
+| **DynamoDB** | Database (scenarios, results, users) | Fast, auto-scales |
+| **Step Functions** | Pipeline manager (step-by-step processing) | Handles retries, errors |
+| **EventBridge** | Triggers pipeline when file uploaded | Automatic, no polling |
+| **Bedrock KB** | Stores correct answers (RAG) | AI uses YOUR data, not guesses |
+| **Bedrock Claude** | AI brain (evaluates recordings) | Understands audio + images |
+| **SNS** | Push notifications + SMS | Alert trainee |
+| **SES** | Email notifications | Alert admin |
+| **WAF** | Security (protects API) | Prevents attacks |
+| **KMS** | Encryption | All data encrypted |
+| **IAM** | Permissions | Controls access |
+| **CloudWatch** | Monitoring + alerts | Track errors, performance |
 
 ---
 
-## All Services — What Each One Does
-
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                                                                          │
-│  SERVICE              WHAT IT DOES (in simple terms)                     │
-│                                                                          │
-│  ─────────────────────────────────────────────────────────────────────  │
-│                                                                          │
-│  CloudFront           Hosts your web apps (admin + trainee websites)    │
-│                       Makes them load fast from anywhere in the world   │
-│                                                                          │
-│  Cognito              Login system. Handles signup, login, passwords,   │
-│                       forgot password, OTP verification                  │
-│                                                                          │
-│  API Gateway          The "front door" of your backend.                 │
-│                       Apps send requests here, it routes to Lambda      │
-│                                                                          │
-│  Lambda               Small pieces of code that run on-demand.          │
-│                       No server to manage. You pay only when it runs.   │
-│                       Each "function" does one specific job.            │
-│                                                                          │
-│  S3                   File storage. Stores video/audio recordings,      │
-│                       knowledge base documents, extracted frames        │
-│                                                                          │
-│  DynamoDB             Database. Stores questions, assignments,          │
-│                       results, user profiles. Fast and scalable.        │
-│                                                                          │
-│  Step Functions       Pipeline manager. Controls the sequence:          │
-│                       "first validate, then process, then evaluate..."  │
-│                       If one step fails, it handles retry/error.        │
-│                                                                          │
-│  EventBridge          Event router. When file uploads to S3, it         │
-│                       triggers the Step Functions pipeline.             │
-│                                                                          │
-│  Bedrock (KB)         Knowledge Base. Stores your correct answers.      │
-│                       AI searches here to find the reference answer.    │
-│                                                                          │
-│  Bedrock (Claude)     The AI brain. Claude model that can understand    │
-│                       audio + images. Evaluates trainee responses.      │
-│                                                                          │
-│  SNS                  Push notifications + SMS to trainee               │
-│                                                                          │
-│  SES                  Email notifications to admin                      │
-│                                                                          │
-│  WAF                  Security wall. Protects API from attacks          │
-│                                                                          │
-│  KMS                  Encryption. Makes sure all data is encrypted     │
-│                                                                          │
-│  IAM                  Permissions. Controls who can access what         │
-│                                                                          │
-│  CloudWatch           Monitoring. Logs, error alerts, dashboards        │
-│                                                                          │
-└─────────────────────────────────────────────────────────────────────────┘
-```
+# PART 4: DATABASE & API DESIGN
 
 ---
 
-## AWS Services Visual Map (Grouped)
-
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                                                                          │
-│  ╔══════════════════════════════════════════════════════╗                │
-│  ║  USER-FACING (what users interact with)              ║                │
-│  ║                                                      ║                │
-│  ║  CloudFront ─── Web app hosting                     ║                │
-│  ║  Cognito ────── Login/signup                        ║                │
-│  ║  API Gateway ── API endpoints                       ║                │
-│  ╚══════════════════════════════════════════════════════╝                │
-│                                                                          │
-│  ╔══════════════════════════════════════════════════════╗                │
-│  ║  BACKEND LOGIC (runs automatically)                  ║                │
-│  ║                                                      ║                │
-│  ║  Lambda ─────── Business logic code                 ║                │
-│  ║  Step Functions  Pipeline orchestration             ║                │
-│  ║  EventBridge ── Triggers pipeline on upload         ║                │
-│  ╚══════════════════════════════════════════════════════╝                │
-│                                                                          │
-│  ╔══════════════════════════════════════════════════════╗                │
-│  ║  DATA STORAGE                                        ║                │
-│  ║                                                      ║                │
-│  ║  S3 ──────────── Files (video, audio, docs)         ║                │
-│  ║  DynamoDB ────── Structured data (questions, scores)║                │
-│  ╚══════════════════════════════════════════════════════╝                │
-│                                                                          │
-│  ╔══════════════════════════════════════════════════════╗                │
-│  ║  AI / EVALUATION                                     ║                │
-│  ║                                                      ║                │
-│  ║  Bedrock KB ──── Your correct answers (RAG)         ║                │
-│  ║  Bedrock Claude ─ Evaluates responses (multimodal)  ║                │
-│  ╚══════════════════════════════════════════════════════╝                │
-│                                                                          │
-│  ╔══════════════════════════════════════════════════════╗                │
-│  ║  NOTIFICATIONS                                       ║                │
-│  ║                                                      ║                │
-│  ║  SNS ──────── Push notifications + SMS              ║                │
-│  ║  SES ──────── Email                                 ║                │
-│  ╚══════════════════════════════════════════════════════╝                │
-│                                                                          │
-│  ╔══════════════════════════════════════════════════════╗                │
-│  ║  SECURITY + MONITORING                               ║                │
-│  ║                                                      ║                │
-│  ║  WAF ──────── API protection                        ║                │
-│  ║  KMS ──────── Data encryption                       ║                │
-│  ║  IAM ──────── Access permissions                    ║                │
-│  ║  CloudWatch ── Logs + alerts                        ║                │
-│  ╚══════════════════════════════════════════════════════╝                │
-│                                                                          │
-└─────────────────────────────────────────────────────────────────────────┘
-```
-
----
-
-# PART 5: IMPLEMENTATION CODE & DETAILS
-
----
-
-## API Design
+## API Endpoints
 
 ### Admin APIs
 
 | Method | Endpoint | What It Does |
 |--------|----------|-------------|
-| POST | /questions | Create a new clinical scenario question |
-| GET | /questions | List all questions |
-| PUT | /questions/{id} | Edit a question |
-| DELETE | /questions/{id} | Delete a question |
-| POST | /assignments | Assign questions to trainee(s) |
+| POST | /scenarios | Create clinical scenario (text + images) |
+| GET | /scenarios | List all scenarios |
+| PUT | /scenarios/{id} | Edit scenario |
+| DELETE | /scenarios/{id} | Delete scenario |
+| POST | /scenarios/{id}/images | Upload clinical images for scenario |
+| POST | /assignments | Assign scenarios to trainee(s) |
+| GET | /assignments | List all assignments |
+| POST | /knowledge-base/upload | Upload correct approach documents |
 | GET | /results | Get all trainee results (filterable) |
-| GET | /results/{traineeId} | Get specific trainee's results |
-| POST | /knowledge-base/upload | Upload correct answer documents |
-| GET | /dashboard/stats | Get aggregated statistics |
+| GET | /results/{traineeId} | Specific trainee's history |
+| GET | /dashboard/stats | Aggregated statistics |
 
 ### Trainee APIs
 
 | Method | Endpoint | What It Does |
 |--------|----------|-------------|
-| GET | /my/assignments | See assigned question sets |
-| GET | /my/questions/{assignmentId} | Get questions for an assignment |
+| GET | /my/assignments | See assigned scenarios |
+| GET | /my/scenarios/{assignmentId} | Get scenario details (text + images) |
 | POST | /my/responses/upload-url | Get secure upload URL for recording |
-| POST | /my/responses | Confirm upload complete, start processing |
+| POST | /my/responses | Confirm upload, trigger processing |
 | GET | /my/results | View own results and feedback |
+| GET | /my/progress | View improvement over time |
 
 ---
 
-## Database Tables (DynamoDB)
+## Database Schema (DynamoDB)
 
-### Questions Table
+### Scenarios Table
 
 ```
-PK: QUESTION#<questionId>
+PK: SCENARIO#<scenarioId>
 SK: META
 
 Fields:
-- questionId (UUID)
-- adminId (who created it)
-- questionText ("A 35-year-old patient comes in with...")
-- category ("periapical", "orthodontics", "hygiene", etc.)
+- scenarioId (UUID)
+- adminId (who created)
+- title ("Post-filling pain case")
+- caseDescription (full text of the clinical scenario)
+- taskInstructions ("Take history, diagnose, manage, answer patient questions")
+- imageKeys (list of S3 keys for clinical images)
+- category ("restorative", "endodontics", "periodontics", "oral-surgery", etc.)
 - difficulty ("easy" | "medium" | "hard")
-- expectedKeyPoints (["Diagnose abscess", "Prescribe antibiotics", ...])
-- totalPoints (number)
-- passingScore (number)
 - createdAt (timestamp)
+- updatedAt (timestamp)
 ```
 
 ### Assignments Table
@@ -669,28 +620,37 @@ Fields:
 - assignmentId (UUID)
 - adminId (who assigned)
 - traineeId (who receives)
-- questionIds (list of question IDs)
+- scenarioIds (list of scenario IDs)
 - status ("sent" | "in-progress" | "completed")
 - dueDate (timestamp)
 - sentAt (timestamp)
+- completedAt (timestamp, optional)
+
+GSI: traineeId-index (PK: traineeId, SK: sentAt)
+GSI: adminId-status-index (PK: adminId, SK: status)
 ```
 
 ### Responses Table
 
 ```
 PK: RESPONSE#<responseId>
-SK: QUESTION#<questionId>
+SK: SCENARIO#<scenarioId>
 
 Fields:
 - responseId (UUID)
 - traineeId
 - assignmentId
-- questionId
-- s3Key (path to video/audio file in S3)
+- scenarioId
+- s3Key (path to video/audio file)
 - fileType ("video/mp4" | "audio/mp3" | etc.)
+- inputMode ("video" | "audio")
 - duration (seconds)
 - status ("uploaded" | "processing" | "evaluating" | "completed" | "failed")
 - uploadedAt (timestamp)
+- processedAt (timestamp, optional)
+
+GSI: traineeId-index (PK: traineeId, SK: uploadedAt)
+GSI: status-index (PK: status, SK: uploadedAt)
 ```
 
 ### Results Table
@@ -703,153 +663,98 @@ Fields:
 - resultId (UUID)
 - responseId
 - traineeId
-- questionId
-- inputType ("video" | "audio")
-- correctness (object: score, total, details)
-- confidence (object: score, total, details)
-- communication (object: score, total, details)
-- bodyLanguage (object: score, total, details — null if audio-only)
-- completeness (object: score, total, details)
+- scenarioId
+- assignmentId
+- inputMode ("video" | "audio")
+- historyTaking (object: {score, total: 10, details})
+- clinicalReasoning (object: {score, total: 10, details})
+- diagnosis (object: {score, total: 10, details})
+- managementPlan (object: {score, total: 10, details})
+- patientCommunication (object: {score, total: 10, details})
+- empathy (object: {score, total: 10, details})
+- confidence (object: {score, total: 10, details})
+- bodyLanguage (object: {score, total: 10, details} — null if audio-only)
 - overallPercentage (number)
-- feedback (string — AI-generated)
+- feedback (string — AI-generated personalized tips)
 - evaluatedAt (timestamp)
+- modelUsed (string — e.g. "claude-3-5-sonnet")
+
+GSI: traineeId-index (PK: traineeId, SK: evaluatedAt)
+GSI: scenarioId-index (PK: scenarioId, SK: evaluatedAt)
+```
+
+### Users Table
+
+```
+PK: USER#<userId>
+SK: PROFILE
+
+Fields:
+- userId (UUID)
+- email
+- name
+- role ("admin" | "trainee")
+- organizationId
+- createdAt (timestamp)
 ```
 
 ---
 
-## Lambda Functions
+## S3 Bucket Structure
+
+```
+dental-trainee-media-{env}/
+├── responses/
+│   └── {traineeId}/{responseId}.{mp4|webm|mp3|wav}
+├── processed/
+│   └── {responseId}/
+│       ├── audio.mp3
+│       └── frames/
+│           ├── frame_001.jpg
+│           ├── frame_002.jpg
+│           └── ...
+└── scenarios/
+    └── {scenarioId}/
+        ├── image_01.jpg
+        ├── image_02.jpg
+        └── ...
+
+dental-trainee-knowledge-{env}/
+├── correct-approaches/
+│   └── {scenarioId}.json
+├── scoring-rubrics/
+│   └── {category}-rubric.json
+└── clinical-guidelines/
+    └── {topic}.pdf
+```
+
+---
+
+# PART 5: IMPLEMENTATION CODE
+
+---
+
+## Lambda Functions Overview
 
 | # | Function | Trigger | Job |
 |---|----------|---------|-----|
-| 1 | question-manager | API Gateway | Create/read/update/delete questions |
-| 2 | assignment-manager | API Gateway | Assign questions to trainees |
-| 3 | upload-url-generator | API Gateway | Generate presigned S3 URL for upload |
+| 1 | scenario-manager | API Gateway | CRUD for clinical scenarios |
+| 2 | assignment-manager | API Gateway | Assign scenarios to trainees |
+| 3 | upload-url-generator | API Gateway | Generate presigned S3 URL |
 | 4 | response-handler | API Gateway | Record upload metadata |
-| 5 | detect-file-type | Step Functions | Check if file is video or audio |
+| 5 | detect-file-type | Step Functions | Check video vs audio |
 | 6 | media-processor | Step Functions | Extract audio + frames (FFmpeg) |
-| 7 | fetch-reference | Step Functions | Query Bedrock KB for correct answer |
-| 8 | evaluate-response | Step Functions | Send to Claude AI for evaluation |
-| 9 | store-results | Step Functions | Save scores to DynamoDB |
-| 10 | send-notifications | Step Functions | Push/email notifications |
-| 11 | results-fetcher | API Gateway | Query results for dashboard |
-| 12 | kb-sync | API Gateway / S3 | Trigger KB re-index when docs uploaded |
+| 7 | fetch-scenario-data | Step Functions | Get scenario text + images from S3 |
+| 8 | fetch-reference | Step Functions | Query KB for correct approach |
+| 9 | evaluate-response | Step Functions | Send everything to Claude AI |
+| 10 | store-results | Step Functions | Save scores to DynamoDB |
+| 11 | send-notifications | Step Functions | Push + email notifications |
+| 12 | results-fetcher | API Gateway | Query results for dashboard |
+| 13 | kb-sync | API Gateway / S3 | Re-index Knowledge Base |
 
 ---
 
-## AI Evaluation Code (Python)
-
-### detect-file-type Lambda
-
-```python
-def lambda_handler(event, context):
-    """Detect if uploaded file is video or audio."""
-    
-    file_type = event['fileType']  # e.g. "video/mp4" or "audio/mp3"
-    
-    video_types = ['video/mp4', 'video/webm', 'video/quicktime']
-    audio_types = ['audio/mpeg', 'audio/wav', 'audio/mp4', 'audio/webm', 'audio/m4a']
-    
-    if file_type in video_types:
-        mode = "video"
-    elif file_type in audio_types:
-        mode = "audio"
-    else:
-        raise Exception(f"Unsupported file type: {file_type}")
-    
-    return {
-        **event,
-        'processingMode': mode  # "video" or "audio"
-    }
-```
-
-### media-processor Lambda (FFmpeg)
-
-```python
-import subprocess
-import boto3
-
-s3 = boto3.client('s3')
-
-def lambda_handler(event, context):
-    """Extract audio and video frames from uploaded file."""
-    
-    mode = event['processingMode']
-    s3_key = event['s3Key']
-    response_id = event['responseId']
-    
-    # Download file from S3
-    local_file = f'/tmp/{response_id}'
-    s3.download_file('responses-bucket', s3_key, local_file)
-    
-    # Extract audio (for both video and audio files)
-    audio_path = f'/tmp/{response_id}.mp3'
-    subprocess.run([
-        'ffmpeg', '-i', local_file,
-        '-vn', '-acodec', 'libmp3lame',
-        audio_path
-    ])
-    
-    # Upload extracted audio to S3
-    audio_s3_key = f'processed/{response_id}/audio.mp3'
-    s3.upload_file(audio_path, 'responses-bucket', audio_s3_key)
-    
-    frames_s3_keys = []
-    
-    if mode == "video":
-        # Extract frames every 15 seconds
-        subprocess.run([
-            'ffmpeg', '-i', local_file,
-            '-vf', 'fps=1/15',  # 1 frame every 15 seconds
-            f'/tmp/{response_id}_frame_%03d.jpg'
-        ])
-        
-        # Upload frames to S3
-        import glob
-        for frame_file in sorted(glob.glob(f'/tmp/{response_id}_frame_*.jpg')):
-            frame_name = frame_file.split('/')[-1]
-            frame_key = f'processed/{response_id}/frames/{frame_name}'
-            s3.upload_file(frame_file, 'responses-bucket', frame_key)
-            frames_s3_keys.append(frame_key)
-    
-    return {
-        **event,
-        'audioS3Key': audio_s3_key,
-        'framesS3Keys': frames_s3_keys  # empty list if audio-only
-    }
-```
-
-### fetch-reference Lambda
-
-```python
-import boto3
-
-bedrock_agent = boto3.client('bedrock-agent-runtime')
-
-def lambda_handler(event, context):
-    """Get the correct answer from Knowledge Base."""
-    
-    question_text = event['questionText']
-    
-    response = bedrock_agent.retrieve(
-        knowledgeBaseId='YOUR_KB_ID',
-        retrievalQuery={'text': question_text},
-        retrievalConfiguration={
-            'vectorSearchConfiguration': {'numberOfResults': 3}
-        }
-    )
-    
-    # Combine top results
-    reference_texts = []
-    for result in response['retrievalResults']:
-        reference_texts.append(result['content']['text'])
-    
-    return {
-        **event,
-        'referenceAnswer': "\n".join(reference_texts)
-    }
-```
-
-### evaluate-response Lambda (THE CORE — Sends to Claude)
+## Core Code: evaluate-response Lambda
 
 ```python
 import boto3
@@ -859,129 +764,72 @@ import base64
 bedrock = boto3.client('bedrock-runtime')
 s3 = boto3.client('s3')
 
+BUCKET = 'dental-trainee-media'
+
 def lambda_handler(event, context):
     """
     THE MAIN EVALUATION STEP.
-    Sends audio + video frames + reference answer to Claude.
-    Claude evaluates and returns scores.
+    Sends scenario + audio + frames + reference to Claude.
+    Claude evaluates on 8 dimensions and returns scores.
     """
     
-    mode = event['processingMode']  # "video" or "audio"
-    question_text = event['questionText']
+    mode = event['inputMode']  # "video" or "audio"
+    scenario_text = event['scenarioText']
+    task_instructions = event['taskInstructions']
     reference_answer = event['referenceAnswer']
     audio_s3_key = event['audioS3Key']
     frames_s3_keys = event.get('framesS3Keys', [])
+    scenario_image_keys = event.get('scenarioImageKeys', [])
     
-    # Download and encode audio
-    audio_obj = s3.get_object(Bucket='responses-bucket', Key=audio_s3_key)
-    audio_base64 = base64.b64encode(audio_obj['Body'].read()).decode()
-    
-    # Build message content
+    # Build the message content array
     content = []
     
-    # Add evaluation instructions
+    # 1. Add evaluation instructions
     if mode == "video":
-        instructions = f"""You are evaluating a TRAINEE DENTIST's video response.
-
-CLINICAL SCENARIO QUESTION:
-{question_text}
-
-CORRECT/EXPECTED ANSWER (from our knowledge base):
-{reference_answer}
-
-EVALUATION INSTRUCTIONS:
-Listen to the audio and look at the video frames. Evaluate on these dimensions:
-
-1. CORRECTNESS (0-10): Are the clinical answers accurate compared to the reference?
-2. CONFIDENCE (0-10): How confidently do they speak? Check for hesitation, filler words (um, uh), pauses, shaky voice.
-3. COMMUNICATION (0-10): Is the explanation clear, well-structured, and easy to understand? Even if the answer is correct, poor communication gets a lower score.
-4. BODY LANGUAGE (0-10): From the video frames - assess eye contact, posture, hand gestures, professional demeanor.
-5. COMPLETENESS (0-10): Did they cover all key points from the reference answer?
-
-IMPORTANT: 
-- If communication is poor but answer is correct, still give high correctness but low communication.
-- Confidence is about HOW they deliver, not WHAT they say.
-- Be encouraging in feedback — these are learners.
-
-Respond ONLY in this JSON format:
-{{
-  "correctness": {{"score": 0, "total": 10, "details": "explanation"}},
-  "confidence": {{"score": 0, "total": 10, "details": "explanation"}},
-  "communication": {{"score": 0, "total": 10, "details": "explanation"}},
-  "body_language": {{"score": 0, "total": 10, "details": "explanation"}},
-  "completeness": {{"score": 0, "total": 10, "details": "explanation"}},
-  "overall_percentage": 0,
-  "feedback": "2-3 sentence encouraging feedback with specific improvement tips"
-}}"""
+        prompt = build_video_prompt(scenario_text, task_instructions, reference_answer)
     else:
-        instructions = f"""You are evaluating a TRAINEE DENTIST's audio response.
-
-CLINICAL SCENARIO QUESTION:
-{question_text}
-
-CORRECT/EXPECTED ANSWER (from our knowledge base):
-{reference_answer}
-
-EVALUATION INSTRUCTIONS:
-Listen to the audio recording. Evaluate on these dimensions:
-
-1. CORRECTNESS (0-10): Are the clinical answers accurate compared to the reference?
-2. CONFIDENCE (0-10): How confidently do they speak? Check for hesitation, filler words (um, uh), pauses, shaky voice.
-3. COMMUNICATION (0-10): Is the explanation clear, well-structured, and easy to understand?
-4. COMPLETENESS (0-10): Did they cover all key points from the reference answer?
-
-NOTE: Body language cannot be assessed (audio-only submission).
-
-IMPORTANT:
-- If communication is poor but answer is correct, still give high correctness but low communication.
-- Confidence is about HOW they deliver, not WHAT they say.
-- Be encouraging in feedback — these are learners.
-
-Respond ONLY in this JSON format:
-{{
-  "correctness": {{"score": 0, "total": 10, "details": "explanation"}},
-  "confidence": {{"score": 0, "total": 10, "details": "explanation"}},
-  "communication": {{"score": 0, "total": 10, "details": "explanation"}},
-  "body_language": null,
-  "completeness": {{"score": 0, "total": 10, "details": "explanation"}},
-  "overall_percentage": 0,
-  "feedback": "2-3 sentence encouraging feedback with specific improvement tips"
-}}"""
+        prompt = build_audio_prompt(scenario_text, task_instructions, reference_answer)
     
-    content.append({"type": "text", "text": instructions})
+    content.append({"type": "text", "text": prompt})
     
-    # Add audio
+    # 2. Add scenario images (clinical photos the trainee was shown)
+    for img_key in scenario_image_keys:
+        img_data = s3.get_object(Bucket=BUCKET, Key=img_key)
+        img_base64 = base64.b64encode(img_data['Body'].read()).decode()
+        content.append({
+            "type": "image",
+            "source": {"type": "base64", "media_type": "image/jpeg", "data": img_base64}
+        })
+    
+    content.append({"type": "text", "text": "Above are the clinical images shown to the trainee. Below is their recorded response:"})
+    
+    # 3. Add trainee's audio
+    audio_data = s3.get_object(Bucket=BUCKET, Key=audio_s3_key)
+    audio_base64 = base64.b64encode(audio_data['Body'].read()).decode()
     content.append({
         "type": "audio",
-        "source": {
-            "type": "base64",
-            "media_type": "audio/mp3",
-            "data": audio_base64
-        }
+        "source": {"type": "base64", "media_type": "audio/mp3", "data": audio_base64}
     })
     
-    # Add video frames (only if video mode)
-    if mode == "video":
-        for frame_key in frames_s3_keys[:10]:  # Max 10 frames
-            frame_obj = s3.get_object(Bucket='responses-bucket', Key=frame_key)
-            frame_base64 = base64.b64encode(frame_obj['Body'].read()).decode()
+    # 4. Add trainee's video frames (if video mode)
+    if mode == "video" and frames_s3_keys:
+        content.append({"type": "text", "text": "Below are video frames from the trainee's recording (for body language assessment):"})
+        for frame_key in frames_s3_keys[:10]:
+            frame_data = s3.get_object(Bucket=BUCKET, Key=frame_key)
+            frame_base64 = base64.b64encode(frame_data['Body'].read()).decode()
             content.append({
                 "type": "image",
-                "source": {
-                    "type": "base64",
-                    "media_type": "image/jpeg",
-                    "data": frame_base64
-                }
+                "source": {"type": "base64", "media_type": "image/jpeg", "data": frame_base64}
             })
     
-    # Call Claude
+    # 5. Call Claude AI
     response = bedrock.invoke_model(
         modelId='anthropic.claude-3-5-sonnet-20241022-v2:0',
         contentType='application/json',
         accept='application/json',
         body=json.dumps({
             "anthropic_version": "bedrock-2023-05-31",
-            "max_tokens": 2048,
+            "max_tokens": 3000,
             "messages": [{"role": "user", "content": content}]
         })
     )
@@ -992,216 +840,156 @@ Respond ONLY in this JSON format:
     return {
         'responseId': event['responseId'],
         'traineeId': event['traineeId'],
-        'questionId': event['questionId'],
+        'scenarioId': event['scenarioId'],
         'assignmentId': event['assignmentId'],
-        'inputType': mode,
+        'inputMode': mode,
         'evaluation': evaluation
     }
+
+
+def build_video_prompt(scenario_text, task_instructions, reference_answer):
+    return f"""You are evaluating a TRAINEE DENTIST's video response to a clinical scenario.
+
+CLINICAL SCENARIO (shown to trainee):
+{scenario_text}
+
+TASK GIVEN TO TRAINEE:
+{task_instructions}
+
+CORRECT/EXPECTED APPROACH (from our knowledge base):
+{reference_answer}
+
+EVALUATION INSTRUCTIONS:
+Listen to the trainee's audio and look at their video frames.
+The clinical images above are what the trainee was shown as part of the scenario.
+
+Score on these 8 dimensions (each 0-10):
+
+1. HISTORY TAKING: Did they ask appropriate questions before diagnosing?
+2. CLINICAL REASONING: Did they logically connect findings to diagnosis?
+3. DIAGNOSIS: Is their diagnosis correct?
+4. MANAGEMENT PLAN: Are treatment steps correct and complete?
+5. PATIENT COMMUNICATION: Did they explain clearly in simple language?
+6. EMPATHY: Did they acknowledge patient's feelings and concerns?
+7. CONFIDENCE: How confidently did they speak? (filler words, hesitation, pauses)
+8. BODY LANGUAGE: Eye contact, posture, gestures, professional demeanor.
+
+IMPORTANT RULES:
+- If communication is poor but diagnosis is correct, give high diagnosis but low communication.
+- Confidence is about HOW they deliver, not WHAT they say.
+- Be encouraging — these are learners.
+- Give specific, actionable improvement tips.
+
+Respond ONLY in this JSON format:
+{{
+  "history_taking": {{"score": 0, "total": 10, "details": "..."}},
+  "clinical_reasoning": {{"score": 0, "total": 10, "details": "..."}},
+  "diagnosis": {{"score": 0, "total": 10, "details": "..."}},
+  "management_plan": {{"score": 0, "total": 10, "details": "..."}},
+  "patient_communication": {{"score": 0, "total": 10, "details": "..."}},
+  "empathy": {{"score": 0, "total": 10, "details": "..."}},
+  "confidence": {{"score": 0, "total": 10, "details": "..."}},
+  "body_language": {{"score": 0, "total": 10, "details": "..."}},
+  "overall_percentage": 0,
+  "feedback": "2-3 sentences with specific improvement tips"
+}}"""
+
+
+def build_audio_prompt(scenario_text, task_instructions, reference_answer):
+    return f"""You are evaluating a TRAINEE DENTIST's audio response to a clinical scenario.
+
+CLINICAL SCENARIO (shown to trainee):
+{scenario_text}
+
+TASK GIVEN TO TRAINEE:
+{task_instructions}
+
+CORRECT/EXPECTED APPROACH (from our knowledge base):
+{reference_answer}
+
+EVALUATION INSTRUCTIONS:
+Listen to the trainee's audio recording.
+The clinical images above are what the trainee was shown as part of the scenario.
+
+Score on these 7 dimensions (each 0-10):
+
+1. HISTORY TAKING: Did they ask appropriate questions before diagnosing?
+2. CLINICAL REASONING: Did they logically connect findings to diagnosis?
+3. DIAGNOSIS: Is their diagnosis correct?
+4. MANAGEMENT PLAN: Are treatment steps correct and complete?
+5. PATIENT COMMUNICATION: Did they explain clearly in simple language?
+6. EMPATHY: Did they acknowledge patient's feelings and concerns?
+7. CONFIDENCE: How confidently did they speak? (filler words, hesitation, pauses)
+
+NOTE: Body language cannot be assessed (audio-only submission).
+
+IMPORTANT RULES:
+- If communication is poor but diagnosis is correct, give high diagnosis but low communication.
+- Confidence is about HOW they deliver, not WHAT they say.
+- Be encouraging — these are learners.
+- Give specific, actionable improvement tips.
+
+Respond ONLY in this JSON format:
+{{
+  "history_taking": {{"score": 0, "total": 10, "details": "..."}},
+  "clinical_reasoning": {{"score": 0, "total": 10, "details": "..."}},
+  "diagnosis": {{"score": 0, "total": 10, "details": "..."}},
+  "management_plan": {{"score": 0, "total": 10, "details": "..."}},
+  "patient_communication": {{"score": 0, "total": 10, "details": "..."}},
+  "empathy": {{"score": 0, "total": 10, "details": "..."}},
+  "confidence": {{"score": 0, "total": 10, "details": "..."}},
+  "body_language": null,
+  "overall_percentage": 0,
+  "feedback": "2-3 sentences with specific improvement tips"
+}}"""
 ```
 
 ---
 
-## Knowledge Base — What to Upload
-
-### Example Reference Answer Document
+## Knowledge Base: What to Upload Per Scenario
 
 ```json
 {
-  "question_id": "Q001",
-  "question": "A 35-year-old patient comes with severe throbbing pain in lower right molar, facial swelling, and mild fever. What is your diagnosis and treatment plan?",
-  "category": "endodontics",
-  "correct_answer": "Diagnosis: Periapical abscess. Immediate management: prescribe antibiotics (Amoxicillin 500mg TDS for 5 days), analgesics (Ibuprofen 400mg). If swelling is fluctuant, perform incision and drainage. Definitive treatment: root canal therapy or extraction depending on tooth restorability. Explain to patient in simple terms with empathy. Schedule follow-up in 48-72 hours.",
-  "key_points": [
-    "Correctly diagnose periapical abscess",
-    "Prescribe appropriate antibiotics",
-    "Prescribe pain relief",
-    "Mention incision and drainage if fluctuant",
-    "Discuss root canal or extraction",
-    "Patient communication with empathy",
-    "Schedule follow-up"
-  ],
-  "total_points": 7,
-  "passing_score": 5
-}
-```
-
-### Example Scoring Rubric Document
-
-```json
-{
-  "category": "endodontics",
-  "evaluation_criteria": {
-    "excellent": "8-10: Comprehensive, confident, well-structured answer",
-    "good": "6-7: Correct answer with minor gaps",
-    "needs_work": "4-5: Basic understanding but significant gaps",
-    "concerning": "0-3: Major knowledge gaps, needs additional training"
-  },
-  "confidence_indicators": {
-    "high_confidence": "Clear speech, no filler words, direct statements",
-    "medium_confidence": "Some hesitation, occasional 'um', but recovers",
-    "low_confidence": "Frequent pauses, many filler words, questioning tone"
+  "scenario_id": "SCN001",
+  "title": "Post-filling pain — silver amalgam",
+  "category": "restorative",
+  "correct_approach": {
+    "history_questions": [
+      "When did the pain start? (immediately after or delayed)",
+      "Type of pain? (sharp on biting, dull ache, throbbing)",
+      "Hot/cold sensitivity?",
+      "Pain localized or radiating?",
+      "Any clenching or grinding habits?",
+      "Previous dental history on this tooth?"
+    ],
+    "expected_diagnosis": "Occlusal high point on new restoration (most common cause of immediate post-filling pain on biting). Differential: galvanic reaction, reversible pulpitis from filling placement near pulp.",
+    "expected_management": [
+      "Check occlusion with articulating paper",
+      "Identify and adjust high spots",
+      "Smooth and polish adjusted areas",
+      "Advise patient pain should resolve within days",
+      "Review in 1 week",
+      "If persists: consider pulp involvement, may need vitality test"
+    ],
+    "patient_communication_expectations": [
+      "Explain in simple terms: filling is sitting too high",
+      "Reassure: this is common and easily fixable",
+      "Acknowledge frustration",
+      "Explain what you will do to fix it"
+    ],
+    "common_mistakes_to_flag": [
+      "Jumping to diagnosis without taking history",
+      "Not checking occlusion",
+      "Suggesting extraction without conservative options first",
+      "Using excessive jargon with worried patient"
+    ]
   }
 }
 ```
 
 ---
 
-# PART 6: IMPLEMENTATION PLAN, COST & SECURITY
-
----
-
-## Implementation Timeline
-
-### Phase 1: Foundation (Week 1-2)
-
-| # | Task | Details |
-|---|------|---------|
-| 1.1 | AWS Account Setup | Create account, set up billing alerts |
-| 1.2 | IAM Roles | Create roles for Lambda, Step Functions, etc. |
-| 1.3 | Infrastructure Code | Set up AWS CDK (TypeScript) project |
-| 1.4 | Cognito | Create user pools for admin + trainee |
-| 1.5 | API Gateway | Deploy API with stub Lambda functions |
-| 1.6 | DynamoDB | Create all tables with indexes |
-| 1.7 | S3 Buckets | Create buckets with encryption |
-| 1.8 | CI/CD | Set up GitHub Actions deployment |
-
-### Phase 2: Admin Features (Week 2-3)
-
-| # | Task | Details |
-|---|------|---------|
-| 2.1 | Question CRUD | Lambda functions for managing questions |
-| 2.2 | Assignment Management | Assign questions to trainees |
-| 2.3 | KB Upload | Upload correct answers to S3 + trigger sync |
-| 2.4 | Bedrock KB Setup | Create Knowledge Base, connect S3 data source |
-| 2.5 | Dashboard API | Results query + aggregation endpoints |
-| 2.6 | Admin Web App | React/Next.js admin interface |
-
-### Phase 3: Trainee Features (Week 3-4)
-
-| # | Task | Details |
-|---|------|---------|
-| 3.1 | Upload URL Generation | Presigned URL for secure file upload |
-| 3.2 | Response Handler | Record upload metadata, update status |
-| 3.3 | Trainee App | Mobile/web app with video + audio recording |
-| 3.4 | Event Trigger | S3 event → EventBridge → Step Functions |
-| 3.5 | Results View | Trainee sees scores + feedback |
-
-### Phase 4: AI Evaluation Pipeline (Week 4-5)
-
-| # | Task | Details |
-|---|------|---------|
-| 4.1 | File Type Detection | Lambda to detect video vs audio |
-| 4.2 | Media Processor | Lambda with FFmpeg (extract audio + frames) |
-| 4.3 | Reference Fetcher | Lambda to query Bedrock KB |
-| 4.4 | Evaluator | Lambda to send to Claude + parse response |
-| 4.5 | Results Storage | Lambda to save to DynamoDB |
-| 4.6 | Notifications | Lambda to send SNS/SES alerts |
-| 4.7 | Step Functions | Deploy complete state machine |
-| 4.8 | End-to-End Test | Test full flow: upload → evaluate → results |
-
-### Phase 5: Polish (Week 5-6)
-
-| # | Task | Details |
-|---|------|---------|
-| 5.1 | Security | WAF rules, encryption, access control |
-| 5.2 | Monitoring | CloudWatch dashboards + alarms |
-| 5.3 | Error Handling | Retry logic, dead letter queues |
-| 5.4 | Performance | Test with concurrent uploads |
-| 5.5 | UAT | User acceptance testing with real trainees |
-
----
-
-## Cost Estimate
-
-**Assumptions: 500 trainees/month, 5 questions each = 2,500 evaluations**
-
-| Service | What It Does | Monthly Cost |
-|---------|-------------|-------------|
-| Lambda | Backend code execution (~40K invocations) | ~$3 |
-| API Gateway | API requests (~80K) | ~$0.30 |
-| S3 | Video/audio storage (~100GB) | ~$5 |
-| DynamoDB | Database reads/writes (~150K) | ~$3 |
-| Bedrock Claude Sonnet | AI evaluation (2,500 calls with audio+images) | ~$50-75 |
-| Bedrock Knowledge Bases | Reference answer retrieval (2,500 queries) | ~$25 |
-| Step Functions | Pipeline orchestration (2,500 × 6 states) | ~$0.40 |
-| Cognito | User authentication (550 users) | Free |
-| SNS + SES | Notifications (5,000) | ~$1 |
-| CloudFront | Web hosting | ~$3 |
-| CloudWatch | Logs + monitoring | ~$5 |
-| WAF | API security | ~$6 |
-| KMS | Encryption keys | ~$2 |
-| **TOTAL** | | **~$105-125/month** |
-
-**Note:** Bedrock (Claude) is the biggest cost. If you need to reduce:
-- Use Claude Haiku (cheaper, slightly less capable) instead of Sonnet
-- Haiku would reduce AI cost to ~$15-25/month
-- Total would drop to ~$65-75/month
-
----
-
-## Security Design
-
-### Who Can Access What
-
-```
-ADMIN (Senior Dentist):
-  ✅ Create/edit/delete questions
-  ✅ Upload knowledge base documents
-  ✅ Assign questions to any trainee
-  ✅ View ALL trainees' results
-  ✅ View dashboard/analytics
-  ❌ Cannot modify trainee accounts
-
-TRAINEE:
-  ✅ View OWN assigned questions only
-  ✅ Upload recordings for OWN assignments only
-  ✅ View OWN results only
-  ❌ Cannot see other trainees' results
-  ❌ Cannot access questions not assigned to them
-  ❌ Cannot modify questions or KB
-```
-
-### Data Protection
-
-| What | How |
-|------|-----|
-| Videos/audio at rest | Encrypted with AWS KMS |
-| Data in transit | TLS 1.2+ (HTTPS everywhere) |
-| Database | DynamoDB encryption enabled |
-| API access | JWT tokens from Cognito |
-| File uploads | Presigned URLs (expire in 15 min) |
-| API protection | WAF (rate limiting, attack prevention) |
-
----
-
-## Error Handling
-
-| What Goes Wrong | What System Does |
-|----------------|-----------------|
-| Upload fails | App retries automatically (3 attempts) |
-| Invalid file type | Immediate error → trainee sees "Please upload MP4, WebM, MP3, or WAV" |
-| File too large (>500MB) | Rejected at upload URL generation step |
-| FFmpeg extraction fails | Retry once → if still fails, mark as "processing-error" |
-| Knowledge Base has no match | Use general evaluation without reference, flag for admin |
-| Claude AI fails/timeout | Retry 2 times → if fails, mark as "needs-manual-review" |
-| Notification fails | Goes to dead letter queue, retried later |
-
----
-
-## Monitoring
-
-| What to Watch | Alert When |
-|---------------|-----------|
-| Lambda errors | Error rate > 5% |
-| Pipeline failures | Any Step Functions failure |
-| API errors | 5xx response rate > 1% |
-| Upload failures | More than 10 failures in 5 minutes |
-| AI response time | Evaluation takes > 60 seconds |
-| Cost | Daily spend exceeds threshold |
-
----
-
-## Step Functions State Machine Definition
+## Step Functions State Machine
 
 ```json
 {
@@ -1217,21 +1005,34 @@ TRAINEE:
     "ProcessMedia": {
       "Type": "Task",
       "Resource": "arn:aws:lambda:...:media-processor",
-      "Next": "FetchReference",
+      "Next": "FetchScenarioData",
+      "TimeoutSeconds": 300,
       "Catch": [{"ErrorEquals": ["States.ALL"], "Next": "MarkFailed"}]
+    },
+    "FetchScenarioData": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:...:fetch-scenario-data",
+      "Next": "FetchReference"
     },
     "FetchReference": {
       "Type": "Task",
       "Resource": "arn:aws:lambda:...:fetch-reference",
       "Next": "EvaluateResponse",
-      "Catch": [{"ErrorEquals": ["States.ALL"], "Next": "MarkFailed"}]
+      "Catch": [{"ErrorEquals": ["States.ALL"], "Next": "EvaluateWithoutReference"}]
     },
     "EvaluateResponse": {
       "Type": "Task",
       "Resource": "arn:aws:lambda:...:evaluate-response",
       "Next": "StoreResults",
+      "TimeoutSeconds": 120,
       "Retry": [{"ErrorEquals": ["States.ALL"], "MaxAttempts": 2, "BackoffRate": 2}],
       "Catch": [{"ErrorEquals": ["States.ALL"], "Next": "MarkFailed"}]
+    },
+    "EvaluateWithoutReference": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:...:evaluate-response",
+      "Comment": "Fallback: evaluate without KB reference, flag for admin review",
+      "Next": "StoreResults"
     },
     "StoreResults": {
       "Type": "Task",
@@ -1245,8 +1046,8 @@ TRAINEE:
       "Catch": [{"ErrorEquals": ["States.ALL"], "Next": "NotificationFailed"}]
     },
     "NotificationFailed": {
-      "Type": "Task",
-      "Resource": "arn:aws:lambda:...:queue-notification-retry",
+      "Type": "Pass",
+      "Comment": "Notification failed but results are saved. Will retry via DLQ.",
       "End": true
     },
     "MarkFailed": {
@@ -1260,40 +1061,189 @@ TRAINEE:
 
 ---
 
+# PART 6: IMPLEMENTATION PLAN, COST & SECURITY
+
+---
+
+## Implementation Timeline (6 Weeks)
+
+### Phase 1: Foundation (Week 1-2)
+
+| # | Task | Details |
+|---|------|---------|
+| 1.1 | AWS Account Setup | Create account, billing alerts, organization |
+| 1.2 | IAM Roles & Policies | Roles for each Lambda, Step Functions, Bedrock access |
+| 1.3 | Infrastructure as Code | AWS CDK (TypeScript) project setup |
+| 1.4 | Cognito User Pools | Admin + Trainee authentication |
+| 1.5 | API Gateway | Deploy REST API with Lambda stubs |
+| 1.6 | DynamoDB Tables | Create all tables with GSIs |
+| 1.7 | S3 Buckets | Media bucket + Knowledge bucket with encryption |
+| 1.8 | CI/CD Pipeline | GitHub Actions → CDK deploy per environment |
+
+### Phase 2: Admin Features (Week 2-3)
+
+| # | Task | Details |
+|---|------|---------|
+| 2.1 | Scenario CRUD | Create/edit/delete clinical scenarios |
+| 2.2 | Image Upload | Upload clinical images per scenario |
+| 2.3 | Assignment Manager | Assign scenarios to trainees |
+| 2.4 | KB Document Upload | Upload correct approaches + trigger sync |
+| 2.5 | Bedrock KB Setup | Create Knowledge Base, connect S3 source |
+| 2.6 | Dashboard API | Results query, filters, aggregation |
+| 2.7 | Admin Web App | React/Next.js interface |
+
+### Phase 3: Trainee Features (Week 3-4)
+
+| # | Task | Details |
+|---|------|---------|
+| 3.1 | Presigned URL Generator | Secure upload URLs for video/audio |
+| 3.2 | Response Handler | Record metadata, update status |
+| 3.3 | Trainee App | Mobile/web app with scenario display + recording |
+| 3.4 | Event Trigger | S3 upload → EventBridge → Step Functions |
+| 3.5 | Results View | Scores + feedback display |
+| 3.6 | Progress Tracking | Historical scores, improvement graph |
+
+### Phase 4: AI Evaluation Pipeline (Week 4-5)
+
+| # | Task | Details |
+|---|------|---------|
+| 4.1 | File Type Detector | Lambda to detect video vs audio |
+| 4.2 | Media Processor | Lambda with FFmpeg (audio + frame extraction) |
+| 4.3 | Scenario Data Fetcher | Get scenario text + images from DB/S3 |
+| 4.4 | Reference Fetcher | Query Bedrock KB for correct approach |
+| 4.5 | Evaluator | Send to Claude, parse 8-dimension response |
+| 4.6 | Results Storage | Save to DynamoDB |
+| 4.7 | Notifications | SNS push + SES email |
+| 4.8 | Step Functions Deploy | Complete state machine |
+| 4.9 | End-to-End Testing | Full flow: upload → evaluate → results |
+
+### Phase 5: Polish & Launch (Week 5-6)
+
+| # | Task | Details |
+|---|------|---------|
+| 5.1 | WAF Rules | Rate limiting, attack prevention |
+| 5.2 | CloudWatch | Dashboards, alarms, error tracking |
+| 5.3 | Error Handling | Retries, dead letter queues, graceful failures |
+| 5.4 | Performance Testing | Concurrent uploads, response times |
+| 5.5 | Security Review | Access control audit, encryption verification |
+| 5.6 | User Acceptance Testing | Real trainees test the system |
+| 5.7 | Production Deploy | Final deployment + monitoring setup |
+
+---
+
+## Cost Estimate
+
+**Assumptions: 500 trainees/month, 5 scenarios each = 2,500 evaluations/month**
+**Average recording: 2-3 minutes**
+
+| Service | Usage | Monthly Cost |
+|---------|-------|-------------|
+| Lambda | ~50K invocations | ~$3 |
+| API Gateway | ~100K requests | ~$0.35 |
+| S3 | ~150GB (videos + images + docs) | ~$5 |
+| DynamoDB | ~200K reads/writes | ~$3 |
+| Bedrock Claude Sonnet | 2,500 evaluations (audio + images) | ~$60-80 |
+| Bedrock Knowledge Bases | 2,500 queries | ~$25 |
+| Step Functions | 2,500 executions × 7 states | ~$0.45 |
+| Cognito | 550 users | Free |
+| SNS + SES | 5,000 notifications | ~$1 |
+| CloudFront | Web hosting + delivery | ~$3 |
+| CloudWatch | Logs + monitoring | ~$5 |
+| WAF | API security | ~$6 |
+| KMS | 2 encryption keys | ~$2 |
+| **TOTAL** | | **~$115-135/month** |
+
+### Cost Reduction Options
+
+| Option | Savings | Trade-off |
+|--------|---------|-----------|
+| Use Claude Haiku instead of Sonnet | Save ~$40/month | Slightly less nuanced evaluation |
+| Process only audio (skip video frames) | Save ~$10/month | No body language scoring |
+| Reduce frame count (5 instead of 10) | Save ~$5/month | Less visual data for AI |
+
+---
+
+## Security Design
+
+### Access Control
+
+```
+ADMIN:
+  ✅ Create/edit/delete scenarios
+  ✅ Upload clinical images
+  ✅ Upload knowledge base documents
+  ✅ Assign scenarios to any trainee
+  ✅ View ALL trainees' results
+  ✅ View dashboard/analytics
+  ❌ Cannot modify trainee accounts directly
+
+TRAINEE:
+  ✅ View OWN assigned scenarios only
+  ✅ Upload recordings for OWN assignments only
+  ✅ View OWN results only
+  ❌ Cannot see other trainees' results
+  ❌ Cannot access unassigned scenarios
+  ❌ Cannot modify scenarios or KB
+```
+
+### Data Protection
+
+| What | How | Why |
+|------|-----|-----|
+| Videos at rest | KMS encryption (SSE-KMS) | Protect recordings |
+| Data in transit | TLS 1.2+ (HTTPS) | Secure transmission |
+| Database | DynamoDB encryption | Protect scores/data |
+| API access | Cognito JWT tokens | Only authenticated users |
+| File uploads | Presigned URLs (15 min expiry) | Prevent unauthorized uploads |
+| API protection | WAF rules | Block attacks |
+| Audit trail | CloudTrail | Track all access |
+
+---
+
+## Error Handling
+
+| What Goes Wrong | What System Does |
+|----------------|-----------------|
+| Invalid file type uploaded | Reject immediately, notify trainee |
+| File too large (>500MB) | Reject at URL generation step |
+| FFmpeg extraction fails | Retry once → mark as "processing-error" |
+| Knowledge Base has no match | Evaluate without reference, flag for admin review |
+| Claude AI fails/timeout | Retry 2 times → mark as "needs-manual-review" |
+| Notification fails | Dead letter queue, retry later |
+| Step Functions timeout | Mark failed, alert admin |
+
+---
+
+## Monitoring & Alerts
+
+| What to Watch | Alert When | Who Gets Alerted |
+|---------------|-----------|-----------------|
+| Lambda errors | Error rate > 5% | Dev team |
+| Pipeline failures | Any failure | Dev team + admin |
+| API 5xx errors | Rate > 1% | Dev team |
+| Evaluation time | > 90 seconds | Dev team |
+| Upload failures | > 10 in 5 minutes | Dev team |
+| Daily cost | Exceeds threshold | Finance/admin |
+
+---
+
 ## Technology Stack
 
 | Layer | Technology | Why |
 |-------|-----------|-----|
-| Frontend (Admin) | React / Next.js | Modern, fast, easy to build dashboards |
-| Frontend (Trainee) | React Native or React Web | Cross-platform mobile + web |
-| Backend | Python 3.12 (Lambda) | Best for AI/ML integration, Bedrock SDK |
-| Infrastructure | AWS CDK (TypeScript) | Repeatable deployments |
-| Database | DynamoDB | Serverless, auto-scales, no maintenance |
-| File Storage | S3 | Unlimited, cheap, secure |
-| AI Evaluation | Amazon Bedrock (Claude Sonnet) | Multimodal — understands audio + images |
-| Knowledge Base | Bedrock Knowledge Bases | Managed RAG, no vector DB to maintain |
-| Pipeline | AWS Step Functions | Visual workflow, built-in retry/error handling |
-| Auth | Amazon Cognito | Managed login, free tier generous |
-| Notifications | SNS + SES | Push, SMS, Email |
-| CI/CD | GitHub Actions | Free for most use, well-integrated |
-| Monitoring | CloudWatch + X-Ray | Native AWS monitoring |
-
----
-
-## Future Enhancements
-
-| Feature | Description |
-|---------|-------------|
-| Real-time evaluation | Stream audio live, get instant feedback |
-| Peer comparison | "You scored higher than 70% of trainees" |
-| Improvement tracking | Graph showing trainee progress over weeks |
-| AI-generated follow-ups | "Based on your weak areas, try these questions next" |
-| Multi-language | Support trainees in different languages |
-| Custom rubrics | Each admin can define their own scoring criteria |
-| Batch assignments | Assign same questions to entire cohort at once |
-| PDF certificates | Generate certificates for trainees who pass |
-| Video playback + annotations | Admin can watch video with AI annotations overlaid |
-| Integration with LMS | Connect to existing Learning Management Systems |
+| Frontend (Admin) | React / Next.js | Modern, component-based |
+| Frontend (Trainee) | React Native or React Web | Cross-platform |
+| Backend | Python 3.12 (Lambda) | Best for AI/Bedrock SDK |
+| Infrastructure | AWS CDK (TypeScript) | Repeatable, version-controlled |
+| Database | DynamoDB | Serverless, auto-scales |
+| File Storage | S3 | Unlimited, cheap |
+| AI Evaluation | Bedrock (Claude 3.5 Sonnet) | Multimodal (audio + images) |
+| Knowledge Base | Bedrock Knowledge Bases | Managed RAG |
+| Pipeline | Step Functions | Visual, retry built-in |
+| Auth | Cognito | Managed, free tier |
+| Notifications | SNS + SES | Push + email |
+| CI/CD | GitHub Actions | Free, flexible |
+| Monitoring | CloudWatch + X-Ray | AWS-native |
 
 ---
 
@@ -1302,20 +1252,39 @@ TRAINEE:
 ### Quick Test (5 minutes):
 
 ```
-1. AWS Console → Amazon Bedrock → Model access → Enable Claude 3.5 Sonnet
-2. AWS Console → Amazon Bedrock → Playgrounds → Chat playground
-3. Select model: Claude 3.5 Sonnet
-4. Upload an audio file (any recording of someone answering a dental question)
-5. Type the evaluation prompt (from the code above)
-6. Click Send → See AI evaluation result
+1. Go to: AWS Console → Amazon Bedrock → Model access
+2. Enable: Claude 3.5 Sonnet
+3. Go to: Bedrock → Playgrounds → Chat playground
+4. Select model: Claude 3.5 Sonnet
+5. Upload: a clinical image + an audio recording of someone answering
+6. Type: the evaluation prompt (from code above)
+7. Click Send → AI returns evaluation with 8 scores
 ```
 
 ### Full Pipeline Test:
 
 ```
-1. Upload a video/audio to S3 bucket
-2. Check Step Functions → see it trigger automatically
-3. Watch each step execute (green = success)
-4. Check DynamoDB → see results stored
-5. Check email → see notification delivered
+1. Upload a video to S3 responses/ folder
+2. Watch Step Functions console → execution starts automatically
+3. See each step turn green (success)
+4. Check DynamoDB → results table has scores
+5. Check email → notification sent
 ```
+
+---
+
+## Future Enhancements
+
+| Feature | Description |
+|---------|-------------|
+| Real-time feedback | Stream audio, get live hints |
+| Peer comparison | "You scored higher than 70% of trainees" |
+| Progress graphs | Improvement tracking over weeks/months |
+| AI follow-ups | "Based on weak areas, try these scenarios next" |
+| Multi-language | Support trainees in different languages |
+| Custom rubrics | Each admin defines their own scoring weights |
+| Cohort management | Group trainees by batch/year |
+| PDF certificates | Auto-generate for trainees who pass |
+| Video replay + annotations | Admin watches video with AI highlights |
+| LMS integration | Connect to existing learning platforms |
+| Simulated patient voice | AI plays the patient role for interactive practice |
